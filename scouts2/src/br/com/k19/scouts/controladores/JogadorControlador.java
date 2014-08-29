@@ -32,6 +32,12 @@ public class JogadorControlador {
 		return "/index";
 	}
 	
+	public String altera() {
+		this.jogadorRepositorio.altera(this.jogador);
+		this.jogador = new Jogador();
+		return "/index";
+	}
+	
 	public List<Jogador> getJogadores() {
 		if(this.jogadores == null) {
 			this.jogadores = this.jogadorRepositorio.buscaJogadores();

@@ -61,7 +61,7 @@ public class Classificacao implements Comparable<Classificacao> {
 			this.pontos += this.gols * 0.5;
 			this.pontos += this.assistencias * 0.5;
 		} else if(this.jogador.getMetodoDePontuacao() == MetodoDePontuacao.SIMPLIFICADO) {
-			this.pontos *= 1.05;
+			this.pontos *= 1.1;
 		}
 		
 		this.media = this.pontos / (this.vitorias + this.empates + this.derrotas);

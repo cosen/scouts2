@@ -38,4 +38,10 @@ public class JogadorRepositorio {
 		
 		pontuacao.setJogador(j);
 	}
+
+	public void altera(Jogador jogador) {
+		Jogador j = this.manager.find(Jogador.class, jogador.getId());
+		jogador.setNome(j.getNome());
+		this.manager.merge(jogador);
+	}
 }
