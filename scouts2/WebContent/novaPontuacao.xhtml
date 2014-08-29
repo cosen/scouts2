@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<h:head>
+	<meta name="viewport" content="width=device-width,user-scalable=yes"></meta>
+</h:head>
+<h:body>
+	<!-- Nova Pontuação -->
+	<pm:page title="Nova Pontuação" swatch="a" id="sortearTimes">
+		<pm:header title="Nova Pontuação" fixed="true">
+			<p:button value="Home" outcome="/index" style="width: 20%" />
+		</pm:header>
+
+		<pm:content>
+			<h:form>
+				<pm:field>
+					<p:selectOneMenu value="#{pontuacaoControlador.jogador.id}">
+						<f:selectItems value="#{jogadorControlador.jogadores}"
+							var="jogador" itemLabel="#{jogador.nome}"
+							itemValue="#{jogador.id}" />
+					</p:selectOneMenu>
+				</pm:field>
+
+				<pm:field>
+					<p:outputLabel value="Vitórias:" for="vitorias" />
+					<p:inputText id="vitorias"
+						value="#{pontuacaoControlador.pontuacao.vitorias}" type="number" />
+				</pm:field>
+
+				<pm:field>
+					<p:outputLabel value="Empates:" for="empates" />
+					<p:inputText id="empates"
+						value="#{pontuacaoControlador.pontuacao.empates}" type="number" />
+				</pm:field>
+
+				<pm:field>
+					<p:outputLabel value="Derrotas:" for="derrotas" />
+					<p:inputText id="derrotas"
+						value="#{pontuacaoControlador.pontuacao.derrotas}" type="number" />
+				</pm:field>
+
+				<pm:field>
+					<p:outputLabel value="Gols:" for="gols" />
+					<p:inputText id="gols"
+						value="#{pontuacaoControlador.pontuacao.gols}" type="number" />
+				</pm:field>
+
+				<pm:field>
+					<p:outputLabel value="Assistencias:" for="assistencias" />
+					<p:inputText id="assistencias"
+						value="#{pontuacaoControlador.pontuacao.assistencias}" type="number" />
+				</pm:field>
+
+				<pm:field>
+					<p:outputLabel value="Gols Contra:" for="gols-contra" />
+					<p:inputText id="gols-contra"
+						value="#{pontuacaoControlador.pontuacao.golsContra}" type="number" />
+				</pm:field>
+				
+				<pm:field>
+					<p:outputLabel value="Início: " for="inicio" />
+					<p:calendar id="inicio" pattern="dd/MM/yyyy"
+						value="#{pontuacaoControlador.pontuacao.data.time}" />
+				</pm:field>
+
+				<p:commandButton action="#{pontuacaoControlador.salva}"
+					value="Salva" />
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>
