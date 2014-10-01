@@ -26,6 +26,7 @@
 					</p:selectOneMenu>
 				</pm:field>
 
+<ui:remove>
 				<pm:field>
 					<p:outputLabel value="Método de Pontuação:" for="metodo-de-pontuacao" style="display:none" />
 					<p:selectOneMenu id="metodo-de-pontuacao" value="#{jogadorControlador.jogador.metodoDePontuacao}">
@@ -33,6 +34,7 @@
 						<f:selectItem itemValue="SIMPLIFICADO" itemLabel="Simplificado"/>
 					</p:selectOneMenu>
 				</pm:field>
+</ui:remove>
 
 				<p:commandButton action="#{jogadorControlador.altera}" value="Salvar" />
 			</h:form>

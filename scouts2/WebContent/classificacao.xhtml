@@ -42,7 +42,9 @@
 						<h:outputText value="#{c.jogador.nome}" />
 					</p:column>
 					<p:column headerText="P">
-						<h:outputText value="#{c.pontos}" />
+						<h:outputText value="#{c.pontos}">
+							<f:convertNumber maxFractionDigits="2"/>
+						</h:outputText>
 					</p:column>
 					<p:column headerText="J">
 						<h:outputText value="#{c.jogos}" />

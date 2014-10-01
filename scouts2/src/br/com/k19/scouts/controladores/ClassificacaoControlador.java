@@ -3,6 +3,7 @@ package br.com.k19.scouts.controladores;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +21,8 @@ public class ClassificacaoControlador {
 
 	private Calendar inicio = new GregorianCalendar(2014, 0, 1);
 
-	private Calendar fim = Calendar.getInstance();
+	private Calendar fim = new GregorianCalendar(
+			TimeZone.getTimeZone("GMT-3:00"));
 
 	public List<Classificacao> getClassificacao() {
 		if (this.classificacao == null) {

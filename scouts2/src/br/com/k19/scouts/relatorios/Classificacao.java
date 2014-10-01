@@ -57,11 +57,14 @@ public class Classificacao implements Comparable<Classificacao> {
 		this.pontos += this.empates * 1;
 		this.pontos -= this.golsContra * 0.5;
 		
-		if(this.jogador.getMetodoDePontuacao() == MetodoDePontuacao.COMPLETO){
-			this.pontos += this.gols * 0.5;
-			this.pontos += this.assistencias * 0.5;
-		} else if(this.jogador.getMetodoDePontuacao() == MetodoDePontuacao.SIMPLIFICADO) {
-			this.pontos *= 1.1;
+		double bonus = this.pontos * 0.1;
+		double pontosPorGolsAssistencias = (this.gols + this.assistencias) * 0.5;
+		
+		
+		if(bonus > pontosPorGolsAssistencias) {
+			this.pontos = this.pontos + bonus;
+		} else {
+			this.pontos = this.pontos + pontosPorGolsAssistencias;
 		}
 		
 		this.media = this.pontos / (this.vitorias + this.empates + this.derrotas);
